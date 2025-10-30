@@ -7,6 +7,8 @@ const convertBtn = document.querySelector('.convert-btn')
 const switchBtn = document.querySelector('.switch-btn')
 const resultContainer = document.querySelector('.result')
 
+// Currency data
+
 const currencies = [
     {
         currencyName: 'EUR',
@@ -14,6 +16,11 @@ const currencies = [
         currencyDescription:'Euro',
         rate: 1,
     }, {
+        currencyName: 'DZD',
+        currencyFlag: 'https://wise.com/web-art/assets/flags/dzd.svg',
+        currencyDescription:'Dinar algérien',
+        rate: 150.26,
+    },{
         currencyName: 'USD',
         currencyFlag: 'https://wise.com/web-art/assets/flags/usd.svg',
         currencyDescription:'Dollar américain',
@@ -29,15 +36,15 @@ const currencies = [
         currencyDescription:'Livre sterling',
         rate: 0.88,
     }, {
-        currencyName: 'DZD',
-        currencyFlag: 'https://wise.com/web-art/assets/flags/dzd.svg',
-        currencyDescription:'Dinar algérien',
-        rate: 150.26,
-    }, {
         currencyName: 'BRL',
         currencyFlag: 'https://wise.com/web-art/assets/flags/brl.svg',
         currencyDescription:'Réal brésilien',
         rate: 6.22,
+    }, {
+        currencyName: 'CNY',
+        currencyFlag: 'https://wise.com/web-art/assets/flags/cny.svg',
+        currencyDescription: 'Yuan chinois',
+        rate: 8.21,
     }
 ]
 
@@ -45,7 +52,7 @@ const currencies = [
 
 window.addEventListener('load', function() {
     selectCurrency(0, 0)
-    selectCurrency(4, 1)
+    selectCurrency(1, 1)
 })
 
 // Add currency options to the dropdowns
@@ -65,9 +72,12 @@ for (const [currencyIndex, currency] of currencies.entries()) {
             container.querySelectorAll('.currency-option.active').forEach(opt => opt.classList.remove('active'))
             
             this.classList.add('active')
+            // Update the selected currency and recalculate
             selectCurrency(currencyIndex, containerIndex)
+            calculate()
         })
 
+        // Append the new option to the container
         container.appendChild(newOption)
     })
 }
@@ -155,6 +165,8 @@ function calculate() {
         resultContainer.textContent = '0.00'
     }
 }
+
+// Calculate on Enter key press
 
 window.addEventListener('keydown', function(e) {
     if(e.key === 'Enter'){

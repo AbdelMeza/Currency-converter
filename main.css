@@ -3,7 +3,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     min-height: 100vh;
-    background: #395046;
+    background: #405049;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,13 +35,14 @@ body {
     padding: 10px;
 
     header {
-        padding: 20px 0;
+        padding-top: 30px;
+        padding-bottom: 10px;
 
         >span {
             background: #0aff912d;
             color: #395046;
             padding: 8px 15px;
-            border-radius: 99px;
+            border-radius: 8px;
         }
     }
 
@@ -61,11 +62,10 @@ body {
         >input {
             width: 100%;
             height: 60px;
-            background: #7979790c;
-            border: 1px solid #d5d5d5;
-            border-radius: 8px;
+            border: 1px solid #b2b2b2;
+            border-radius: 10px;
             padding-left: 20px;
-            font-size: 16px;
+            font-size: 20px;
         }
     }
 
@@ -142,8 +142,6 @@ body {
     height: 50px;
     width: 85px;
     background: none;
-    background: #7979790c;
-    border: 1px solid #d5d5d5;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -159,6 +157,7 @@ body {
 
     >.currency-name {
         color: #111;
+        font-size: 18px;
         font-weight: 600;
     }
 }
@@ -169,25 +168,32 @@ body {
     font-size: 16px;
     height: 60px;
     width: 100%;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
 .switch-btn {
     background: none;
     cursor: pointer;
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .result {
     width: calc(100% - 40px);
     height: 60px;
     margin: 0 20px;
-    margin-bottom: 20px;
-    background: #7979790c;
-    border: 1px solid #d5d5d5;
-    border-radius: 8px;
+    margin-bottom: 80px;
+    border: 1px solid #b2b2b2;
+    border-radius: 10px;
     padding-left: 20px;
-    font-size: 16px;
+    font-size: 20px;
     display: flex;
     align-items: center;
 }
@@ -199,7 +205,7 @@ body {
         border-radius: 0;
         display: flex;
         justify-content: start;
-        padding-top: 15vh;
+        padding-top: 10vh;
     }
 
     .lower-content {
