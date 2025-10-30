@@ -24,10 +24,10 @@ body {
 }
 
 .converter-container {
+    position: relative;
     background: #fff;
     width: 500px;
     border-radius: 10px;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,8 +61,8 @@ body {
         >input {
             width: 100%;
             height: 60px;
-            background: #79797916;
-            border: 1px solid #bdbdbd;
+            background: #7979790c;
+            border: 1px solid #d5d5d5;
             border-radius: 8px;
             padding-left: 20px;
             font-size: 16px;
@@ -76,7 +76,20 @@ body {
 
         >.from-currency .currency-container,
         .to-currency .currency-container {
-            display: none;
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            background: #fff;
+            border: 1px solid #d5d5d5;
+            border-radius: 8px;
+            width: 250px;
+            padding: 10px;
+            margin-top: 5px;
+            z-index: 10;
+            transition: 0.1s;
 
             >.currency-option {
                 height: 50px;
@@ -94,6 +107,11 @@ body {
                     color: #797979;
                 }
 
+                &:hover {
+                    border-color: #d5d5d5;
+                    background: #00000006;
+                }
+
                 &.active {
                     border-color: #0aff91;
                     background: #0aff9126;
@@ -101,15 +119,8 @@ body {
             }
 
             &.active {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                position: absolute;
-                background: #fff;
-                border-radius: 8px;
-                width: 300px;
-                z-index: 10;
-                padding: 10px;
+                opacity: 1;
+                pointer-events: all;
             }
         }
     }
@@ -119,13 +130,20 @@ body {
     }
 }
 
+.middle-content .from-currency .currency-container {
+    left: 10px;
+}
+
+.middle-content .to-currency .currency-container {
+    right: 10px;
+}
 
 .currency-selection {
     height: 50px;
     width: 85px;
     background: none;
-    background: #79797916;
-    border: 1px solid #bdbdbd;
+    background: #7979790c;
+    border: 1px solid #d5d5d5;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -136,10 +154,11 @@ body {
     >.currency-flag {
         height: 30px;
         border-radius: 50%;
-        border: 1px solid #bdbdbd;
+        border: 1px solid #d5d5d5;
     }
 
     >.currency-name {
+        color: #111;
         font-weight: 600;
     }
 }
@@ -147,7 +166,7 @@ body {
 .convert-btn {
     background: #0aff91;
     color: #111;
-    font-size: 18px;
+    font-size: 16px;
     height: 60px;
     width: 100%;
     border-radius: 8px;
@@ -164,8 +183,8 @@ body {
     height: 60px;
     margin: 0 20px;
     margin-bottom: 20px;
-    background: #79797916;
-    border: 1px solid #bdbdbd;
+    background: #7979790c;
+    border: 1px solid #d5d5d5;
     border-radius: 8px;
     padding-left: 20px;
     font-size: 16px;
@@ -183,10 +202,10 @@ body {
         padding-top: 15vh;
     }
 
-    .lower-content{
+    .lower-content {
         padding: 0 20px;
 
-        >.result{
+        >.result {
             width: 100%;
             margin: 0;
             margin-bottom: 20px;
