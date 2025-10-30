@@ -151,5 +151,13 @@ function calculate() {
 
     if(amount.value !== ''){
         resultContainer.textContent = result
+    } else{
+        resultContainer.textContent = '0.00'
     }
 }
+
+window.addEventListener('keydown', function(e) {
+    if(e.key === 'Enter'){
+        calculate()
+    }
+})
